@@ -1,5 +1,6 @@
 import { useState } from "react"
 import House from "./House"
+import StaysList from '../stays.json';
 
 const Stays = () => {
     const [location, setLocation] = useState('Helsinki')
@@ -13,8 +14,12 @@ const Stays = () => {
             </div>
 
 
-            <div id="staysList">
-                <House />
+            <div id="staysList" style={{ display: `grid`, gap: `32px`, gridTemplateColumns: `repeat(3,1fr)` }}>
+                {StaysList.map((h, index) => {
+                    return (
+                        <House key={index} house={h} />
+                    );
+                })}
             </div>
         </div>
     )
