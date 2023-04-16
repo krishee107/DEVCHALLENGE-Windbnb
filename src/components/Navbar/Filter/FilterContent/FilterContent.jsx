@@ -14,8 +14,12 @@ const FilterContent = (props) => {
 
     return (
         <div className="menuContent">
-            {filter == 'location' && <CityList />}
-            {filter == 'guests' && <AddGuests />}
+            <div className="section">
+                {filter == 'location' && <CityList />}
+            </div>
+            <div className="section">
+                {filter == 'guests' && <AddGuests />}
+            </div>
             {filter == 'search' && <Search />}
 
         </div>

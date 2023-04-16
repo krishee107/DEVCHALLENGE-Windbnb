@@ -1,0 +1,32 @@
+.box {
+    padding: 30px;
+}
+
+h4 {
+    all: unset;
+    font-family: 'Muli';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #333333;
+}
+
+.infoAges {
+    color: #BDBDBD;
+    padding-bottom: 15px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+button {
+    color: #828282;
+    background-color: white;
+    border: 1px solid #828282;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
