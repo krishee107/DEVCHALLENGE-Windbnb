@@ -1,44 +1,56 @@
-import { useState } from 'react'
-import './AddGuests.css'
+import { useState, useEffect } from 'react';
+import './AddGuests.css';
 
 const AddGuests = () => {
-    const [adults, setAdults] = useState(0)
-    const [children, setChildren] = useState(0)
+    const [adults, setAdults] = useState(() => parseInt(localStorage.getItem('adults')) || 0);
+    const [children, setChildren] = useState(() => parseInt(localStorage.getItem('children')) || 0);
 
-    const decrementAdults = () => {
-        if (adults > 0) setAdults(adults - 1);
-    }
-    const incrementAdults = () => setAdults(adults + 1)
+    const updateLocalStorage = () => {
+        localStorage.setItem('adults', adults);
+        localStorage.setItem('children', children);
+    };
 
-    const decrementChildren = () => {
-        if (children > 0) setChildren(children - 1);
-    }
-    const incrementChildren = () => setChildren(children + 1)
+    const updateValue = (setValue, value) => {
+        setValue(value);
+    };
 
+    const handleIncrement = (setValue, value) => {
+        updateValue(setValue, value + 1);
+    };
+
+    const handleDecrement = (setValue, value) => {
+        if (value > 0) {
+            updateValue(setValue, value - 1);
+        }
+    };
+
+    useEffect(() => {
+        updateLocalStorage();
+    }, [adults, children]);
 
     return (
         <div className="guests">
             <div className="adultsBox box">
                 <h4>Adults</h4>
                 <div className="infoAges">Ages 13 or above</div>
-                <form >
-                    <button onClick={(e) => { e.preventDefault(); decrementAdults() }}>-</button>
+                <form>
+                    <button onClick={(e) => { e.preventDefault(); handleDecrement(setAdults, adults) }}>-</button>
                     <div className="num">{adults}</div>
-                    <button onClick={(e) => { e.preventDefault(); incrementAdults() }}>+</button>
+                    <button onClick={(e) => { e.preventDefault(); handleIncrement(setAdults, adults) }}>+</button>
                 </form>
             </div>
 
             <div className="childrenBox box">
                 <h4>Children</h4>
                 <div className="infoAges">Ages 2-12</div>
-                <form >
-                    <button onClick={(e) => { e.preventDefault(); decrementChildren() }}>-</button>
+                <form>
+                    <button onClick={(e) => { e.preventDefault(); handleDecrement(setChildren, children) }}>-</button>
                     <div className="num">{children}</div>
-                    <button onClick={(e) => { e.preventDefault(); incrementChildren() }}>+</button>
+                    <button onClick={(e) => { e.preventDefault(); handleIncrement(setChildren, children) }}>+</button>
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default AddGuests
+export default AddGuests;
