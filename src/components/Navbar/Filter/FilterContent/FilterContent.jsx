@@ -28,8 +28,6 @@ const FilterContent = (props) => {
             <div className="section">
                 {filter == 'guests' && <AddGuests guests={getGuests} />}
             </div>
-            {filter == 'search' && <Search />}
-
         </div>
     )
 }
