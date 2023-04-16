@@ -5,7 +5,7 @@ import Buttons from './Buttons/Buttons';
 import Filter from './Filter/Filter';
 
 const Navbar = () => {
-    const [filterState, setFilterState] = useState(false)
+    const [filterState, setFilterState] = useState(true)
     const [filter, setFilter] = useState('location')
 
     const handleFilterOpen = () => setFilterState(true);

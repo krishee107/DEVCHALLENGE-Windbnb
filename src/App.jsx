@@ -4,7 +4,7 @@ import Stays from './components/Stays/Stays'
 function App() {
 
   return (
-    <div className="App" style={{ fontFamily: `Montserrat, sans-serif`, position: `relative` }}>
+    <div className="App" style={{ fontFamily: `Montserrat, sans-serif` }}>
       <Navbar />
       <Stays />
     </div>
