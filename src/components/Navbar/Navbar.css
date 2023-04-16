@@ -16,6 +16,7 @@ nav {
 
 .menu div {
     padding: 20px 15px;
+    cursor: pointer;
 }
 
 .location {

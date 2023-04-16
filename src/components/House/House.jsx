@@ -5,7 +5,7 @@ import './House.css'
 
 const House = ({ house }) => {
     return (
-        <div id='home'>
+        <div id='home' className='home'>
             <div id="homeImg" className='homeImg'>
                 <img src={house.photo} alt="House img" />
             </div>
