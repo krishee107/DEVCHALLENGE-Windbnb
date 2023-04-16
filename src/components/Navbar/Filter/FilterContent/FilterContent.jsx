@@ -3,6 +3,8 @@ import './FilterContent.css'
 import Stays from '../../../../stays.json'
 
 const FilterContent = () => {
+
+
     const cityList = Stays.map((c) => {
         return c.city + ", " + c.country;
     });
