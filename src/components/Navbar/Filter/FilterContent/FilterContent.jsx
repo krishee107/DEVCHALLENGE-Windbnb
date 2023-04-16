@@ -2,7 +2,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import './FilterContent.css'
 import Stays from '../../../../stays.json'
 
-const FilterContent = () => {
+const FilterContent = (props) => {
 
 
     const cityList = Stays.map((c) => {
@@ -12,6 +12,7 @@ const FilterContent = () => {
 
     return (
         <div className="menuContent">
+            <h1>{props.filter}</h1>
             <div className="cityList" >
                 {cityTotal.map((c) => {
                     return (
