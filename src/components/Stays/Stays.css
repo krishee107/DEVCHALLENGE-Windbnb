@@ -1,0 +1,40 @@
+.stays {
+    padding: 15px 10px;
+}
+
+.staysHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #333333;
+}
+
+.staysList {
+    display: grid;
+    gap: 32px;
+    grid-template-columns: repeat(auto-fill, 100%);
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 500px) {
+    .stays {
+        padding: 15px 10px;
+    }
+
+    .staysList {
+        grid-template-columns: repeat(auto-fill, 380px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .stays {
+        padding: 60px 90px
+    }
+}
