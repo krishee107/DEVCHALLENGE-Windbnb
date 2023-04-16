@@ -8,6 +8,7 @@ const Navbar = () => {
     const [filterState, setFilterState] = useState(true)
     const [filter, setFilter] = useState('location')
     const [guests, setGuests] = useState(() => parseInt(localStorage.getItem('guests')) || 0);
+    const [city, setCity] = useState(() => parseInt(localStorage.getItem('city')) || 0);
 
     const handleFilterOpen = () => setFilterState(true);
     const handleFilterClose = () => setFilterState(false)
@@ -20,10 +21,15 @@ const Navbar = () => {
         localStorage.setItem('guests', guests);
     }, [guests])
 
+    const getCity = (city) => { setCity(city) }
+    useEffect(() => {
+        localStorage.setItem('city', city);
+    }, [city])
+
     return (
         <nav className='Nav'>
             <div id="logo"><img src={Logo} alt="Logo" /></div>
-            {!filterState ? <Buttons handleFilterOpen={handleFilterOpen} getFilter={getFilter} guests={guests} /> : <Filter handleFilterClose={handleFilterClose} guests={getGuests} />}
+            {!filterState ? <Buttons handleFilterOpen={handleFilterOpen} getFilter={getFilter} guests={guests} city={city} /> : <Filter handleFilterClose={handleFilterClose} guests={getGuests} city={getCity} />}
 
         </nav>
     );

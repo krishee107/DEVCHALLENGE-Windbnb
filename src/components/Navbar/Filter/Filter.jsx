@@ -6,12 +6,17 @@ import { useState, useEffect } from 'react';
 const Filter = (props) => {
     const [filter, setFilter] = useState('location')
     const [guests, setGuests] = useState(() => parseInt(localStorage.getItem('guests')) || 0);
+    const [city, setCity] = useState(() => parseInt(localStorage.getItem('city')) || 0);
 
     const getGuests = (num) => { setGuests(num) }
     useEffect(() => {
-        localStorage.setItem('guests', guests);
         props.guests(guests)
     }, [guests])
+
+    const getCity = (city) => { setCity(city) }
+    useEffect(() => {
+        props.city(city)
+    }, [city])
 
 
     return (
@@ -24,7 +29,9 @@ const Filter = (props) => {
                     <div id="location" className='location' onClick={() => setFilter('location')}>
                         <div className="locationBox">
                             <h5>LOCATION</h5>
-                            <div className="locationCity">Helsinki, Finland</div>
+                            <div className="locationCity">
+                                {city != 0 ? <div style={{ color: `black` }}>{city}</div> : <div > Add location</div>}
+                            </div>
                         </div>
                     </div>
                     <div id="addGuests" className='addGuests' onClick={() => setFilter('guests')}>
@@ -41,7 +48,7 @@ const Filter = (props) => {
                     </div>
                 </div>
 
-                <FilterContent filter={filter} guests={getGuests} />
+                <FilterContent filter={filter} guests={getGuests} city={getCity} />
             </div>
         </div >
 
