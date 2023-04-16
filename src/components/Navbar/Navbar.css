@@ -21,7 +21,8 @@ nav {
 
 .location {
     border-right: 1px solid #F2F2F2;
-    line-height: 16px
+    line-height: 16px;
+    color: #BDBDBD;
 }
 
 .addGuests {
