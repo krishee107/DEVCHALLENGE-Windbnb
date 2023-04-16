@@ -1,10 +1,18 @@
 import SearchIcon from '@mui/icons-material/Search';
 import FilterContent from './FilterContent/FilterContent';
 import './Filter.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Filter = (props) => {
     const [filter, setFilter] = useState('location')
+    const [guests, setGuests] = useState(() => parseInt(localStorage.getItem('guests')) || 0);
+
+    const getGuests = (num) => { setGuests(num) }
+    useEffect(() => {
+        localStorage.setItem('guests', guests);
+        props.guests(guests)
+    }, [guests])
+
 
     return (
         <div className="filterBox">
@@ -22,7 +30,9 @@ const Filter = (props) => {
                     <div id="addGuests" className='addGuests' onClick={() => setFilter('guests')}>
                         <div className="guestsBox">
                             <h5>GUESTS</h5>
-                            <div className="guestText">Add guests</div>
+                            <div className="guestText">
+                                {(guests > 0) ? <div style={{ color: `black` }}>{guests} guests</div> : <div> Add guests</div>}
+                            </div>
                         </div>
 
                     </div>
@@ -31,9 +41,9 @@ const Filter = (props) => {
                     </div>
                 </div>
 
-                <FilterContent filter={filter} />
+                <FilterContent filter={filter} guests={getGuests} />
             </div>
-        </div>
+        </div >
 
     )
 }

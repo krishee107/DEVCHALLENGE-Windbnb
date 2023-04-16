@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import './AddGuests.css';
 
-const AddGuests = () => {
+const AddGuests = (props) => {
     const [adults, setAdults] = useState(() => parseInt(localStorage.getItem('adults')) || 0);
     const [children, setChildren] = useState(() => parseInt(localStorage.getItem('children')) || 0);
+    const [guests, setGuests] = useState(adults + children)
 
     const updateLocalStorage = () => {
         localStorage.setItem('adults', adults);
@@ -26,7 +27,12 @@ const AddGuests = () => {
 
     useEffect(() => {
         updateLocalStorage();
+        setGuests(adults + children)
     }, [adults, children]);
+
+    useEffect(() => {
+        props.guests(guests)
+    }, [guests])
 
     return (
         <div className="guests">
