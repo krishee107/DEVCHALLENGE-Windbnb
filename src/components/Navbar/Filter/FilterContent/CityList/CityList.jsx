@@ -4,7 +4,7 @@ import './CityList.css'
 import { useEffect, useState } from 'react';
 
 const CityList = (props) => {
-    const [city, setCity] = useState(() => parseInt(localStorage.getItem('city')) || 0);
+    const [city, setCity] = useState(() => localStorage.getItem('city') || 0);
 
     const cityList = Stays.map((c) => {
         return c.city + ", " + c.country;

@@ -5,10 +5,10 @@ import Buttons from './Buttons/Buttons';
 import Filter from './Filter/Filter';
 
 const Navbar = () => {
-    const [filterState, setFilterState] = useState(true)
+    const [filterState, setFilterState] = useState(false)
     const [filter, setFilter] = useState('location')
     const [guests, setGuests] = useState(() => parseInt(localStorage.getItem('guests')) || 0);
-    const [city, setCity] = useState(() => parseInt(localStorage.getItem('city')) || 0);
+    const [city, setCity] = useState(() => localStorage.getItem('city') || 0);
 
     const handleFilterOpen = () => setFilterState(true);
     const handleFilterClose = () => setFilterState(false)
