@@ -118,6 +118,10 @@ h5 {
     gap: 11px;
 }
 
+.menuContent {
+    padding-top: 40px;
+}
+
 @media (min-width: 500px) {
     nav {
         padding: 10px 15px;
