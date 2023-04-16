@@ -1,29 +1,23 @@
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+
+import { useState, useEffect } from 'react'
+import CityList from './CityList/CityList'
 import './FilterContent.css'
-import Stays from '../../../../stays.json'
+import AddGuests from './AddGuests/AddGuests';
+import { Search } from '@mui/icons-material';
 
 const FilterContent = (props) => {
 
-
-    const cityList = Stays.map((c) => {
-        return c.city + ", " + c.country;
-    });
-    const cityTotal = [...new Set(cityList)]
+    const [filter, setfilter] = useState(props.filter);
+    useEffect(() => {
+        setfilter(props.filter);
+    }, [props.filter]);
 
     return (
         <div className="menuContent">
-            <h1>{props.filter}</h1>
-            <div className="cityList" >
-                {cityTotal.map((c) => {
-                    return (
-                        <div className="city">
-                            <LocationOnIcon style={{ fontSize: `20px` }} />
-                            {c}
-                        </div>
-                    )
-                })}
+            {filter == 'location' && <CityList />}
+            {filter == 'guests' && <AddGuests />}
+            {filter == 'search' && <Search />}
 
-            </div>
         </div>
     )
 }
