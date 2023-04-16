@@ -1,6 +1,6 @@
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Stays from '../../../../../stays.json'
-
+import './CityList.css'
 
 const CityList = () => {
     const cityList = Stays.map((c) => {

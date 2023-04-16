@@ -1,0 +1,5 @@
+.city:hover {
+    cursor: pointer;
+    color: #EB5757;
+    font-weight: bold;
+}
