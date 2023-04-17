@@ -7,8 +7,8 @@ import Filter from './Filter/Filter';
 const Navbar = (props) => {
     const [filterState, setFilterState] = useState(false)
     const [filter, setFilter] = useState('location')
-    const [guests, setGuests] = useState(() => parseInt(localStorage.getItem('guests')) || 0);
-    const [city, setCity] = useState(() => localStorage.getItem('city') || 0);
+    const [guests, setGuests] = useState(0);
+    const [city, setCity] = useState(0);
 
     const handleFilterOpen = () => setFilterState(true);
     const handleFilterClose = () => setFilterState(false)
@@ -17,14 +17,8 @@ const Navbar = (props) => {
         setFilter(filter)
     }
     const getGuests = (num) => { setGuests(num) }
-    useEffect(() => {
-        localStorage.setItem('guests', guests);
-    }, [guests])
 
     const getCity = (city) => { setCity(city) }
-    useEffect(() => {
-        localStorage.setItem('city', city);
-    }, [city])
 
 
     const getSearch = () => {

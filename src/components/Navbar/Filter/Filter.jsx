@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 
 const Filter = (props) => {
     const [filter, setFilter] = useState('location')
-    const [guests, setGuests] = useState(() => parseInt(localStorage.getItem('guests')) || 0);
-    const [city, setCity] = useState(() => parseInt(localStorage.getItem('city')) || 0);
+    const [guests, setGuests] = useState(0);
+    const [city, setCity] = useState(0);
 
     const getGuests = (num) => { setGuests(num) }
     useEffect(() => {
