@@ -1,8 +1,11 @@
 import './InfoHouse.css'
 
-const InfoHouse = () => {
+const InfoHouse = ({ house }) => {
   return (
-    <div>InfoHouse</div>
+    <div className="houseBox">
+      <div className="img"><img src={house.photo} alt={house.title} /></div>
+      <div className="title">{house.title}</div>
+    </div>
   )
 }
 

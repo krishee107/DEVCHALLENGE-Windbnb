@@ -52,7 +52,6 @@ const Stays = (props) => {
     const handleHouseOpen = (house) => {
         setInfoState(true)
         setInfoHouse(house)
-        console.log(house)
     }
     const handleHouseClose = () => {
         setInfoState(false)
@@ -73,10 +72,13 @@ const Stays = (props) => {
                     );
                 })}
             </div>
+            {infoState &&
+                <div className="modalHouseBox">
+                    <div className="modalHouse" onClick={handleHouseClose}></div>
+                    <InfoHouse house={infoHouse} />
+                </div>
+            }
 
-            <div className="houseBox" onClick={handleHouseClose}>
-                <InfoHouse />
-            </div>
         </div>
     )
 }
