@@ -4,7 +4,7 @@ import StaysList from '../../stays.json';
 import './Stays.css'
 
 const Stays = (props) => {
-    const [numStays, setNumStays] = useState(12)
+    const [numStays, setNumStays] = useState(StaysList.length)
     const [city, setCity] = useState(0)
     const [guests, setGuests] = useState(0)
     const [filterCity, setFilterCity] = useState([])
@@ -41,6 +41,10 @@ const Stays = (props) => {
             setFilterCity(StaysList)
         }
     }, [city, guests]);
+
+    useEffect(() => {
+        setNumStays(filterCity.length)
+    }, [filterCity]);
 
     return (
         <div id="stays" className="stays" >
