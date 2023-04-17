@@ -28,7 +28,7 @@ const Navbar = (props) => {
 
     return (
         <nav className='Nav'>
-            <div id="logo"><img src={Logo} alt="Logo" /></div>
+            <div id="logo" className='logo'><img src={Logo} alt="Logo" /></div>
             {!filterState ? <Buttons handleFilterOpen={handleFilterOpen} getFilter={getFilter} guests={guests} city={city} search={getSearch} /> : <Filter handleFilterClose={handleFilterClose} guests={getGuests} city={getCity} search={getSearch} />}
 
         </nav>
