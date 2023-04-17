@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Logo from '../../assets/logo.png'
 import './Navbar.css';
 import Buttons from './Buttons/Buttons';
@@ -29,7 +29,12 @@ const Navbar = (props) => {
     return (
         <nav className='Nav'>
             <div id="logo" className='logo'><img src={Logo} alt="Logo" /></div>
-            {!filterState ? <Buttons handleFilterOpen={handleFilterOpen} getFilter={getFilter} guests={guests} city={city} search={getSearch} /> : <Filter handleFilterClose={handleFilterClose} guests={getGuests} city={getCity} search={getSearch} />}
+
+            {!filterState ?
+                <Buttons handleFilterOpen={handleFilterOpen} getFilter={getFilter} guests={guests} city={city} search={getSearch} />
+                :
+                <Filter handleFilterClose={handleFilterClose} guests={getGuests} city={getCity} search={getSearch} />
+            }
 
         </nav>
     );

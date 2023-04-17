@@ -1,7 +1,10 @@
 /* Filter menu */
 .filterBox {
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
 .filterMenu {
@@ -51,7 +54,7 @@ h5 {
     border: solid 1px;
     border-radius: 25px;
     flex-direction: column;
-    padding-left: 25px !important;
+    padding-left: 25px;
     display: flex;
     justify-content: center;
 }
@@ -64,7 +67,8 @@ h5 {
 }
 
 /* AddGuests Filtr */
-.menuOptions .addGuests {
+.menuOptions .addGuests,
+.menuOptions .locationCity {
     padding: 12px 32px;
 }
 
@@ -92,4 +96,48 @@ h5 {
 
 .menuContent {
     padding-top: 40px;
+}
+
+
+@media (max-width: 600px) {
+    .menuBox {
+        padding: 20px;
+    }
+
+    /*Header */
+    .menuBoxHeader {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 0;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 15px;
+        color: #333333;
+        font-family: 'Muli';
+    }
+
+    /* Filter **/
+    .menuOptions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btnSearch {
+        padding: 15px 20px;
+    }
+
+    .location {
+        border-bottom: 1px solid #F2F2F2;
+    }
+
+    .menuOptions .locationCity {
+        padding-left: unset;
+    }
+
+    .locationBox,
+    .guestsBox {
+        padding-top: 11px;
+        border: none;
+    }
+
 }
