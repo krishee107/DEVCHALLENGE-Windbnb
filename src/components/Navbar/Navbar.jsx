@@ -27,7 +27,10 @@ const Navbar = (props) => {
     }, [city])
 
 
-    const getSearch = () => props.search(city, guests)
+    const getSearch = () => {
+        props.search(city, guests)
+        setFilterState(false)
+    }
 
     return (
         <nav className='Nav'>
