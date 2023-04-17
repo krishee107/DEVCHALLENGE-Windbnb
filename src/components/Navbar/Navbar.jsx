@@ -4,7 +4,7 @@ import './Navbar.css';
 import Buttons from './Buttons/Buttons';
 import Filter from './Filter/Filter';
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [filterState, setFilterState] = useState(false)
     const [filter, setFilter] = useState('location')
     const [guests, setGuests] = useState(() => parseInt(localStorage.getItem('guests')) || 0);
@@ -26,10 +26,13 @@ const Navbar = () => {
         localStorage.setItem('city', city);
     }, [city])
 
+
+    const getSearch = () => props.search(city, guests)
+
     return (
         <nav className='Nav'>
             <div id="logo"><img src={Logo} alt="Logo" /></div>
-            {!filterState ? <Buttons handleFilterOpen={handleFilterOpen} getFilter={getFilter} guests={guests} city={city} /> : <Filter handleFilterClose={handleFilterClose} guests={getGuests} city={getCity} />}
+            {!filterState ? <Buttons handleFilterOpen={handleFilterOpen} getFilter={getFilter} guests={guests} city={city} search={getSearch} /> : <Filter handleFilterClose={handleFilterClose} guests={getGuests} city={getCity} search={getSearch} />}
 
         </nav>
     );

@@ -9,7 +9,7 @@ const Buttons = (props) => {
             <div id="addGuests" className='addGuests' onClick={props.getFilter('guests')}>
                 {props.guests > 0 ? <div style={{ color: `black` }}>{props.guests} guests</div> : <div> Add guests</div>}
             </div>
-            <div id="lupa" className='lupa' onClick={props.getFilter('search')}> <SearchIcon /></div>
+            <div id="lupa" className='lupa' onClick={props.search}> <SearchIcon /></div>
         </div>
     )
 }

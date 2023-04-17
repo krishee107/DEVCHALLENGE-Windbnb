@@ -44,7 +44,7 @@ const Filter = (props) => {
 
                     </div>
                     <div id="lupa" className='lupa' onClick={() => setFilter('search')}>
-                        <div className="btnSearch"><SearchIcon /> Search</div>
+                        <div className="btnSearch" onClick={props.search}><SearchIcon /> Search</div>
                     </div>
                 </div>
 
