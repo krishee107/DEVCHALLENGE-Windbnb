@@ -2,12 +2,15 @@ import { useState, useEffect } from "react"
 import House from "../House/House"
 import StaysList from '../../stays.json';
 import './Stays.css'
+import InfoHouse from "../InfoHouse/InfoHouse";
 
 const Stays = (props) => {
     const [numStays, setNumStays] = useState(StaysList.length)
     const [city, setCity] = useState(0)
     const [guests, setGuests] = useState(0)
     const [filterCity, setFilterCity] = useState([])
+    const [infoState, setInfoState] = useState(false)
+    const [infoHouse, setInfoHouse] = useState()
 
     useEffect(() => {
         setCity(props.city);
@@ -46,6 +49,15 @@ const Stays = (props) => {
         setNumStays(filterCity.length)
     }, [filterCity]);
 
+    const handleHouseOpen = (house) => {
+        setInfoState(true)
+        setInfoHouse(house)
+        console.log(house)
+    }
+    const handleHouseClose = () => {
+        setInfoState(false)
+    }
+
     return (
         <div id="stays" className="stays" >
             <div id="staysHeader" className="staysHeader" >
@@ -57,9 +69,13 @@ const Stays = (props) => {
             <div id="staysList" className="staysList">
                 {filterCity.map((h, index) => {
                     return (
-                        <House key={index} house={h} />
+                        <House key={index} house={h} handle={handleHouseOpen} />
                     );
                 })}
+            </div>
+
+            <div className="houseBox" onClick={handleHouseClose}>
+                <InfoHouse />
             </div>
         </div>
     )

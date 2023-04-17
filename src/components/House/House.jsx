@@ -3,9 +3,9 @@ import StarIcon from '@mui/icons-material/Star';
 import './House.css'
 
 
-const House = ({ house }) => {
+const House = ({ house, handle }) => {
     return (
-        <div id='home' className='home'>
+        <div id='home' className='home' onClick={() => { handle(house) }}>
             <div id="homeImg" className='homeImg'>
                 <img src={house.photo} alt="House img" />
             </div>
